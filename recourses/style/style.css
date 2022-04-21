@@ -1,0 +1,26 @@
+#main {
+    text-align: center;
+    position: relative;
+    top: 200px;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#session-container {
+    width: 40%;
+    height: 20%;
+    margin: 0 auto;
+    border: 5px solid grey;
+    border-radius: 10px;
+}
+
+.changer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
