@@ -25,32 +25,40 @@ $(document).ready(function() {
 
     // decrease and inrease value of break length
     $('.break-length-decrease').on('click', () => {
-        if (breakLength_dynamycValue == 1)
-            return;
-        breakLength_dynamycValue -= 1;
-        breakLength_buffer = breakLength_dynamycValue;
-        $('#break-length-value').html(`${breakLength_dynamycValue}`);
+        if (!isPlayed) {
+            if (breakLength_dynamycValue == 1)
+                return;
+            breakLength_dynamycValue -= 1;
+            breakLength_buffer = breakLength_dynamycValue;
+            $('#break-length-value').html(`${breakLength_dynamycValue}`);
+        }
     });
     $('.break-length-increase').on('click', () => {
-        breakLength_dynamycValue += 1;
-        breakLength_buffer = breakLength_dynamycValue;
-        $('#break-length-value').html(`${breakLength_dynamycValue}`);
+        if (!isPlayed) {
+            breakLength_dynamycValue += 1;
+            breakLength_buffer = breakLength_dynamycValue;
+            $('#break-length-value').html(`${breakLength_dynamycValue}`);
+        }
     });
 
     // decrease and inrease value of session length
     $('.session-length-decrease').on('click', () => {
-        if (sessionLength_dynamycValue == 1)
-            return;
-        sessionLength_dynamycValue -= 1;
-        sessionLength_buffer = sessionLength_dynamycValue;
-        $('#session-length-value').html(`${sessionLength_dynamycValue}`);
-        $('#time').html(`${sessionLength_dynamycValue}:00`);
+        if (!isPlayed) {
+            if (sessionLength_dynamycValue == 1)
+                return;
+            sessionLength_dynamycValue -= 1;
+            sessionLength_buffer = sessionLength_dynamycValue;
+            $('#session-length-value').html(`${sessionLength_dynamycValue}`);
+            $('#time').html(`${sessionLength_dynamycValue}:00`);
+        }
     });
     $('.session-length-increase').on('click', () => {
-        sessionLength_dynamycValue += 1;
-        sessionLength_buffer = sessionLength_dynamycValue;
-        $('#session-length-value').html(`${sessionLength_dynamycValue}`);
-        $('#time').html(`${sessionLength_dynamycValue}:00`);
+        if (!isPlayed) {
+            sessionLength_dynamycValue += 1;
+            sessionLength_buffer = sessionLength_dynamycValue;
+            $('#session-length-value').html(`${sessionLength_dynamycValue}`);
+            $('#time').html(`${sessionLength_dynamycValue}:00`);
+        }
     });
     /* -------------------------------------------------------------------------------- */
 
@@ -135,7 +143,8 @@ $(document).ready(function() {
         } else if (isRefreshClicked) {
             isRefreshClicked = false;
         }
-        time();
+        if (!isPlayed)
+            time();
     });
 
     $('#pause').on('click', () => { // 
