@@ -8,8 +8,8 @@ $(document).ready(function() {
     let breakLength_dynamycValue = 5;
     let sessionLength_dynamycValue = 25;
     //
-    let breakLength_buffer = 0;
-    let sessionLength_buffer = 0;
+    let breakLength_buffer = breakLength_dynamycValue;
+    let sessionLength_buffer = sessionLength_dynamycValue;
     let seconds = 59;
     let isPauseClicked = false;
     let isRefreshClicked = false;
@@ -60,12 +60,17 @@ $(document).ready(function() {
             $('#time').html(`${sessionLength_dynamycValue}:00`);
         }
     });
+
     /* -------------------------------------------------------------------------------- */
+
+    $('#session-break').html('Session');
 
     const breakStopwatch = () => {
 
-        if (breakLength_dynamycValue === 0 && seconds === 0) {
-            sessionLength_dynamycValue = sessionLength_buffer;
+        if (breakLength_dynamycValue == 0 && seconds == 0) {
+            $('#session-break').html('Session');
+            breakLength_dynamycValue = breakLength_buffer;
+            seconds = 59;
             isBreakRn = false;
             return;
         }
@@ -84,12 +89,14 @@ $(document).ready(function() {
             $('#time').html(`${breakLength_dynamycValue}:${seconds}`);
             seconds -= 1;
         }
-    }
+    };
 
     const sessionStopwatch = () => {
 
-        if (sessionLength_dynamycValue === 0 && seconds === 0) {
-            breakLength_dynamycValue = breakLength_buffer;
+        if (sessionLength_dynamycValue == 0 && seconds == 0) {
+            $('#session-break').html('Time relax!');
+            sessionLength_dynamycValue = sessionLength_buffer;
+            seconds = 59;
             isBreakRn = true;
             return;
         }
@@ -108,7 +115,7 @@ $(document).ready(function() {
             $('#time').html(`${sessionLength_dynamycValue}:${seconds}`);
             seconds -= 1;
         }
-    }
+    };
 
     const reset = () => {
         $('#break-length-value').html(`${breakLength}`);
@@ -119,7 +126,7 @@ $(document).ready(function() {
         seconds = 59;
         isRefreshClicked = false;
         isPauseClicked = false;
-    }
+    };
 
     //
     const time = () => {
@@ -132,7 +139,7 @@ $(document).ready(function() {
                 isBreakRn ? breakStopwatch() : sessionStopwatch();
             }
         }, 1000)
-    }
+    };
 
     $('#start').on('click', () => {
         if (isPauseClicked && isRefreshClicked) {
