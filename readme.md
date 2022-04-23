@@ -2,6 +2,8 @@
 
 This is a clock that works on the principle of intervals. Every 25 minutes of work, a five-minute break will start.
 
+** In other applications I used React or React-Redux, in this application I decided to practice with the jQuery library
+
 ## How should I interract with this app?
 
 By default, working time lasts 25 minutes, break lasts 5 minutes. You can use the up and down arrows to change these default values.
