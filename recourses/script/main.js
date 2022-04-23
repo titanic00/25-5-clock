@@ -81,7 +81,7 @@ $(document).ready(function() {
             seconds -= 1;
         } else if (seconds === 0) {
             seconds = 59;
-            $('#time').html(`${breakLength_dynamycValue}:${seconds}`);
+            $('#time').html(`${breakLength_dynamycValue}:00`);
         } else if (seconds < 10) {
             $('#time').html(`${breakLength_dynamycValue}:0${seconds}`);
             seconds -= 1;
@@ -107,7 +107,7 @@ $(document).ready(function() {
             seconds -= 1;
         } else if (seconds === 0) {
             seconds = 59;
-            $('#time').html(`${sessionLength_dynamycValue}:${seconds}`);
+            $('#time').html(`${sessionLength_dynamycValue}:00`);
         } else if (seconds < 10) {
             $('#time').html(`${sessionLength_dynamycValue}:0${seconds}`);
             seconds -= 1;
