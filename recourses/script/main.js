@@ -1,6 +1,7 @@
 $(document).ready(function() {
     /* -------------------------------------------------------------------------------- */
 
+    const notification = new Audio('./recourses/sounds/notification.wav');
     // initial values
     const breakLength = 5;
     const sessionLength = 25;
@@ -68,6 +69,7 @@ $(document).ready(function() {
     const breakStopwatch = () => {
 
         if (breakLength_dynamycValue == 0 && seconds == 0) {
+            notification.play();
             $('#session-break').html('Session');
             breakLength_dynamycValue = breakLength_buffer;
             seconds = 59;
@@ -94,6 +96,7 @@ $(document).ready(function() {
     const sessionStopwatch = () => {
 
         if (sessionLength_dynamycValue == 0 && seconds == 0) {
+            notification.play();
             $('#session-break').html('Time relax!');
             sessionLength_dynamycValue = sessionLength_buffer;
             seconds = 59;
