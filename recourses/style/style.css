@@ -54,7 +54,7 @@ body {
 }
 
 
-/* Extra small devices (phones, 600px and down) */
+/* Devices 280 - 450 pixels wide  */
 
 @media only screen and (min-device-width: 280px) and (max-device-width: 450px) {
     #main {
@@ -62,6 +62,9 @@ body {
         height: 40%;
     }
 }
+
+
+/* Devices 1024 - 1368 pixels wide  */
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1368px) {
     #main {
@@ -74,6 +77,9 @@ body {
         height: 45%;
     }
 }
+
+
+/* Devices 540 - 1000 pixels wide  */
 
 @media only screen and (min-device-width: 540px) and (max-device-width: 1000px) {
     #main {

@@ -1,6 +1,7 @@
 $(document).ready(function() {
     /* -------------------------------------------------------------------------------- */
 
+    // played between the transition from the work session to the rest, and vice versa
     const notification = new Audio('./recourses/sounds/notification.wav');
     // initial values
     const breakLength = 5;
@@ -8,10 +9,11 @@ $(document).ready(function() {
     // set values for break length and session length by clicking buttons on the page
     let breakLength_dynamycValue = 5;
     let sessionLength_dynamycValue = 25;
-    //
+    // we need these values to make the transition between rest and work session
     let breakLength_buffer = breakLength_dynamycValue;
     let sessionLength_buffer = sessionLength_dynamycValue;
     let seconds = 59;
+    // check if buttons have been pressed
     let isPauseClicked = false;
     let isRefreshClicked = false;
     let isBreakRn = false;
@@ -30,6 +32,7 @@ $(document).ready(function() {
             if (breakLength_dynamycValue == 1)
                 return;
             breakLength_dynamycValue -= 1;
+            // we need thie value to make the transition between rest and work session
             breakLength_buffer = breakLength_dynamycValue;
             $('#break-length-value').html(`${breakLength_dynamycValue}`);
         }
@@ -37,6 +40,7 @@ $(document).ready(function() {
     $('.break-length-increase').on('click', () => {
         if (!isPlayed) {
             breakLength_dynamycValue += 1;
+            // we need thie value to make the transition between rest and work session
             breakLength_buffer = breakLength_dynamycValue;
             $('#break-length-value').html(`${breakLength_dynamycValue}`);
         }
@@ -48,6 +52,7 @@ $(document).ready(function() {
             if (sessionLength_dynamycValue == 1)
                 return;
             sessionLength_dynamycValue -= 1;
+            // we need thie value to make the transition between rest and work session
             sessionLength_buffer = sessionLength_dynamycValue;
             $('#session-length-value').html(`${sessionLength_dynamycValue}`);
             $('#time').html(`${sessionLength_dynamycValue}:00`);
@@ -56,6 +61,7 @@ $(document).ready(function() {
     $('.session-length-increase').on('click', () => {
         if (!isPlayed) {
             sessionLength_dynamycValue += 1;
+            // we need thie value to make the transition between rest and work session
             sessionLength_buffer = sessionLength_dynamycValue;
             $('#session-length-value').html(`${sessionLength_dynamycValue}`);
             $('#time').html(`${sessionLength_dynamycValue}:00`);
@@ -64,10 +70,13 @@ $(document).ready(function() {
 
     /* -------------------------------------------------------------------------------- */
 
+    // first launch starts from working session
     $('#session-break').html('Session');
 
+    // stopwatch counts rest time
     const breakStopwatch = () => {
 
+        // if the rest is over (the timer has dropped to 0:0), then the working session is started
         if (breakLength_dynamycValue == 0 && seconds == 0) {
             notification.play();
             $('#session-break').html('Session');
@@ -77,6 +86,7 @@ $(document).ready(function() {
             return;
         }
 
+        // stopwatch
         if (seconds === 59) {
             breakLength_dynamycValue -= 1;
             $('#time').html(`${breakLength_dynamycValue}:${seconds}`);
@@ -93,8 +103,10 @@ $(document).ready(function() {
         }
     };
 
+    // stepwatch counts session time
     const sessionStopwatch = () => {
 
+        // if the working session is over (the timer has dropped to 0:0), then a break is started
         if (sessionLength_dynamycValue == 0 && seconds == 0) {
             notification.play();
             $('#session-break').html('Time relax!');
@@ -104,6 +116,7 @@ $(document).ready(function() {
             return;
         }
 
+        // stopwatch
         if (seconds === 59) {
             sessionLength_dynamycValue -= 1;
             $('#time').html(`${sessionLength_dynamycValue}:${seconds}`);
@@ -120,6 +133,7 @@ $(document).ready(function() {
         }
     };
 
+    // reset value if reset button has been clicked
     const reset = () => {
         $('#break-length-value').html(`${breakLength}`);
         $('#session-length-value').html(`${sessionLength}`);
@@ -131,7 +145,7 @@ $(document).ready(function() {
         isPauseClicked = false;
     };
 
-    //
+    // start timer
     const time = () => {
         isPlayed = true;
         const stopwatch = setInterval(() => {
@@ -144,9 +158,10 @@ $(document).ready(function() {
         }, 1000)
     };
 
+    // timer starts on click
     $('#start').on('click', () => {
-        if (isPauseClicked && isRefreshClicked) {
-            isPauseClicked = false;
+        if (isPauseClicked && isRefreshClicked) { // if the buttons were pressed,
+            isPauseClicked = false; // we must set a false by pressing the start of the timer
             isRefreshClicked = false;
         } else if (isPauseClicked) {
             isPauseClicked = false;
