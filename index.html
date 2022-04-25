@@ -5,7 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./recourses/script/main.js"></script>
     <script src="https://kit.fontawesome.com/7ce05f1a83.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./recourses/style/style.css" />
+    <link rel="stylesheet" href="./recourses/style/style.scss" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
@@ -14,50 +14,50 @@
 </head>
 
 <body>
-    <div class="container h-100 overflow-hidden">
+    <div class="container h-100">
         <!-- Container with title and clock image -->
         <div class="row justify-content-center align-items-center">
-            <h1 class="col-md-5 col-sm-5 col-12">25+5 clock</h1>
-            <img src="./recourses/images/clocks-removebg-preview.png" class="col-md-3 col-sm-5 col-12" />
+            <h1 class="col-xl-5 col-md-12 col-sm-5 col-12">25+5 clock</h1>
+            <img src="./recourses/images/clocks-removebg-preview.png" class="col-xl-3 col-md-12 col-sm-5 col-12" />
         </div>
         <!-- Container with options to change the timer -->
         <div class="length-container row justify-content-center align-items-center">
-            <h2 class="col-md-5 col-sm-6 col-6">Break Length</h2>
-            <h2 class="col-md-5 col-sm-6 col-6">Session Length</h2>
-        </div>
-        <!-- Container with up and down arrows -->
-        <div class="row justify-content-center">
-            <div class="changer col-md-2 col-sm-3 col-3">
-                <i class="fa fa-arrow-down fa-2x break-length-decrease "></i>
-                <h2 id="break-length-value"></h2>
-                <i class="fa fa-arrow-up fa-2x break-length-increase"></i>
-            </div>
-            <div class="changer col-3 col-md-2 col-sm-3 offset-3">
-                <i class="fa fa-arrow-down fa-2x session-length-decrease"></i>
-                <h2 id="session-length-value"></h2>
-                <i class="fa fa-arrow-up fa-2x session-length-increase"></i>
+            <h2 class="col-xl-5 col-md-6 col-sm-6 col-6">Break</h2>
+            <h2 class="col-xl-5 col-md-6 col-sm-6 col-6">Session</h2>
+            <!-- Container with up and down arrows -->
+            <div class="row justify-content-center">
+                <div class="changer col-xl-5 col-md-6 col-sm-6 col-6">
+                    <i class="fa fa-2xl fa-arrow-down fa-2x break-length-decrease "></i>
+                    <h2 id="break-length-value"></h2>
+                    <i class="fa fa-2xl fa-arrow-up fa-2x break-length-increase"></i>
+                </div>
+                <div class="changer col-xl-5 col-md-6 col-sm-6  col-6">
+                    <i class="fa fa-2xl fa-arrow-down fa-2x session-length-decrease"></i>
+                    <h2 id="session-length-value"></h2>
+                    <i class="fa fa-2xl fa-arrow-up fa-2x session-length-increase"></i>
+                </div>
             </div>
         </div>
         <!-- Time display container -->
         <div id="tabloid">
             <div class="row justify-content-center">
-                <h3 id="session-break" class="col-md-12 col-sm-12 col-12"></h3>
+                <h3 id="session-break" class="col-xl-12 col-md-12 col-sm-12 col-12"></h3>
             </div>
             <div class="row justify-content-center">
-                <h1 id="time" class=" col-md-12 col-sm-12 col-12">
+                <h1 id="time" class="col-xl-12 col-md-12 col-sm-12 col-12">
 
                 </h1>
             </div>
         </div>
         <!-- Options: start, pause and restart -->
         <div class="row justify-content-center">
-            <div class="p-3 col-md-1 col-sm-2  col-4">
+            <div class="fa-xl p-3 col-xl-4 col-md-4 col-sm-4 col-4">
                 <i id="start" class="fa fa-play fa-2x"></i>
             </div>
-            <div class="p-3 col-md-1 col-sm-2 col-4">
+            <div class="fa-xl p-3 col-xl-4 col-md-4 col-sm-4 col-4">
                 <i id="pause" class="fa fa-pause fa-2x"></i>
             </div>
-            <div class="p-3 col-md-1 col-sm-2 col-4">
+            <div class="fa-xl p-3 col-xl-4 col-md-4 col-sm-4 col-4">
                 <i id="reset" class="fa fa-refresh fa-2x"></i>
             </div>
         </div>
