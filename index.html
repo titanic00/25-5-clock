@@ -9,53 +9,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="main">
-        <!-- Title and picture of the clock -->
-        <div class="head head-n-image">
-            <h1>25 + 5 Clock</h1>
-            <img src="./recourses/images/clocks-removebg-preview.png" />
+    <div class="container h-100 overflow-hidden">
+        <!-- Container with title and clock image -->
+        <div class="row justify-content-center align-items-center">
+            <h1 class="col-md-5 col-sm-5 col-12">25+5 clock</h1>
+            <img src="./recourses/images/clocks-removebg-preview.png" class="col-md-3 col-sm-5 col-12" />
         </div>
-        <!-- Decrease/increase the working session time or break time -->
-        <div class="length-container container">
-            <div class="head">
-                <h2>Break Length</h2>
-                <div class="changer">
-                    <i class="fa fa-arrow-down fa-2x break-length-decrease"></i>
-                    <h2 id="break-length-value"></h2>
-                    <i class="fa fa-arrow-up fa-2x break-length-increase"></i>
-                </div>
+        <!-- Container with options to change the timer -->
+        <div class="length-container row justify-content-center align-items-center">
+            <h2 class="col-md-5 col-sm-6 col-6">Break Length</h2>
+            <h2 class="col-md-5 col-sm-6 col-6">Session Length</h2>
+        </div>
+        <!-- Container with up and down arrows -->
+        <div class="row justify-content-center">
+            <div class="changer col-md-2 col-sm-3 col-3">
+                <i class="fa fa-arrow-down fa-2x break-length-decrease "></i>
+                <h2 id="break-length-value"></h2>
+                <i class="fa fa-arrow-up fa-2x break-length-increase"></i>
             </div>
-            <div class="head">
-                <h2>Session Length</h2>
-                <div class="changer">
-                    <i class="fa fa-arrow-down fa-2x session-length-decrease"></i>
-                    <h2 id="session-length-value"></h2>
-                    <i class="fa fa-arrow-up fa-2x session-length-increase"></i>
-                </div>
+            <div class="changer col-3 col-md-2 col-sm-3 offset-3">
+                <i class="fa fa-arrow-down fa-2x session-length-decrease"></i>
+                <h2 id="session-length-value"></h2>
+                <i class="fa fa-arrow-up fa-2x session-length-increase"></i>
             </div>
         </div>
-        <!-- Time display -->
-        <div id="session-container">
-            <h3 id="session-break" class="time-element"></h3>
-            <h1 id="time" class="time-element">
+        <!-- Time display container -->
+        <div id="tabloid">
+            <div class="row justify-content-center">
+                <h3 id="session-break" class="col-md-12 col-sm-12 col-12"></h3>
+            </div>
+            <div class="row justify-content-center">
+                <h1 id="time" class=" col-md-12 col-sm-12 col-12">
 
-            </h1>
+                </h1>
+            </div>
         </div>
-        <!-- Timer control container -->
-        <div class="buttons-container container">
-            <div class="button">
+        <!-- Options: start, pause and restart -->
+        <div class="row justify-content-center">
+            <div class="p-3 col-md-1 col-sm-2  col-4">
                 <i id="start" class="fa fa-play fa-2x"></i>
             </div>
-            <div class="button">
+            <div class="p-3 col-md-1 col-sm-2 col-4">
                 <i id="pause" class="fa fa-pause fa-2x"></i>
             </div>
-            <div class="button">
+            <div class="p-3 col-md-1 col-sm-2 col-4">
                 <i id="reset" class="fa fa-refresh fa-2x"></i>
             </div>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
